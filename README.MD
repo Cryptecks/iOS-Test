@@ -1,3 +1,0 @@
-README.MD
-
-Coming soon, some working iOS code...
