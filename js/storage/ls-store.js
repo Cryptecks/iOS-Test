@@ -7,7 +7,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
             return fullName.toLowerCase().indexOf(searchKey.toLowerCase()) > -1;
         });
         callLater(callback, results);
-    }
+    };
 
     this.findById = function(id, callback) {
         var employees = JSON.parse(window.localStorage.getItem("employees"));
@@ -20,7 +20,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
             }
         }
         callLater(callback, employee);
-    }
+    };
 
     // Used to simulate async calls. This is done to provide a consistent interface with stores (like WebSqlStore)
     // that use async data access APIs
@@ -30,7 +30,7 @@ var LocalStorageStore = function(successCallback, errorCallback) {
                 callback(data);
             });
         }
-    }
+    };
 
     var employees = [
             {"id": 1, "firstName": "Ryan", "lastName": "Howard", "title":"Vice President, North East", "managerId": 0, "city":"New York, NY", "cellPhone":"212-999-8888", "officePhone":"212-999-8887", "email":"ryan@dundermifflin.com"},
@@ -54,4 +54,4 @@ var LocalStorageStore = function(successCallback, errorCallback) {
 
     callLater(successCallback);
 
-}
+};

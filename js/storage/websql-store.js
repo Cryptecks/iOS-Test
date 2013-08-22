@@ -16,8 +16,8 @@ var WebSqlStore = function(successCallback, errorCallback) {
                     console.log('Transaction success');
                     if (successCallback) successCallback();
                 }
-        )
-    }
+        );
+    };
 
     this.createTable = function(tx) {
         tx.executeSql('DROP TABLE IF EXISTS employee');
@@ -38,7 +38,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                 function(tx, error) {
                     alert('Create table error: ' + error.message);
                 });
-    }
+    };
 
     this.addSampleData = function(tx, employees) {
         var employees = [
@@ -73,7 +73,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                         alert('INSERT error: ' + error.message);
                     });
         }
-    }
+    };
 
     this.findByName = function(searchKey, callback) {
         this.db.transaction(
@@ -98,7 +98,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
                 alert("Transaction Error: " + error.message);
             }
         );
-    }
+    };
 
     this.findById = function(id, callback) {
         this.db.transaction(
@@ -122,4 +122,4 @@ var WebSqlStore = function(successCallback, errorCallback) {
 
     this.initializeDatabase(successCallback, errorCallback);
 
-}
+};
