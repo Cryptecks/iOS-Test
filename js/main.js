@@ -41,17 +41,59 @@ var app = {
     },
 
     route: function() {
+        var self = this;
         var hash = window.location.hash;
         if (!hash) {
-            $('body').html(new HomeView(this.store).render().el);
-            return;
+            if (this.homePage) {
+                this.slidePage(this.homePage);
+            } else {
+                this.homePage = new HomeView(this.store).render();
+                this.slidePage(this.homePage);
+            }
         }
         var match = hash.match(app.detailsURL);
         if (match) {
             this.store.findById(Number(match[1]), function(employee) {
-                $('body').html(new EmployeeView(employee).render().el);
+                self.slidePage(new EmployeeView(employee).render());
             });
         }
+    },
+
+    slidePage: function(page) {
+        var currentPageDest,
+            self = this;
+
+        // If there isn't a current page (fresh start) -> No transition
+        if (!this.currentPage) {
+            $(page.el).attr('class', 'page stage-center');
+            $('body').append(page.el);
+            this.currentPage = page;
+            return;
+        }
+
+        // Cleaning up: remove old pages moved out of viewport
+        $('.stage-right, .stage-left').not('.homePage').remove();
+
+        if (page === app.homePage) {
+            // Always apply a Back transition when we go to search page
+            $(page.el).attr('class', 'page stage-left');
+            currentPageDest = "stage-right";
+        } else {
+            // Forward transition
+            $(page.el).attr('class', 'page stage-right');
+            currentPageDest = "stage-left";
+        }
+
+        $('body').append(page.el);
+
+        // Wait until the new page is added to the DOM
+        setTimeout(function() {
+            // Slide out the current page: If new page slides from right, slide current page to the left and vice versa
+            $(self.currentPage.el).attr('class', 'page transition ' + currentPageDest);
+            // Slide in the new page
+            $(page.el).attr('class', 'page stage-center transition');
+            self.currentPage = page;
+        });
     },
 };
 
