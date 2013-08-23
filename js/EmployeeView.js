@@ -54,8 +54,8 @@ var EmployeeView = function(employee) {
 							sourceType: 1,		// 0: Photo library, 1: Camera, 2: Saved Photo Album
 						};
 		navigator.camera.getPicture(
+			app.showAlert('f(imageData)', 'WHERE AM I'),
 			function(imageData) {
-				app.showAlert('f(imageData)', 'WHERE AM I');
 				$('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
 			},
 			function() {
