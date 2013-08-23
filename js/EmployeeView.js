@@ -4,7 +4,7 @@ var EmployeeView = function(employee) {
 		this.el = $('<div/>');
 		this.el.on('click', '.add-location-btn', this.addLocation);
 		this.el.on('click', '.add-contact-btn', this.addToContacts);
-		this.el.on('click', 'change-pic-btn', this.changePicture);
+		this.el.on('click', '.change-pic-btn', this.changePicture);
 	};
 
 	this.render = function() {
@@ -52,9 +52,9 @@ var EmployeeView = function(employee) {
 							quality: 50,
 							destinationType: Camera.DestinationType.DATA_URL,
 							sourceType: 1,		// 0: Photo library, 1: Camera, 2: Saved Photo Album
+							encodingType: 0		// 0: jpg, 1: png
 						};
 		navigator.camera.getPicture(
-			app.showAlert('f(imageData)', 'WHERE AM I'),
 			function(imageData) {
 				$('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
 			},
