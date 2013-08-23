@@ -52,10 +52,10 @@ var EmployeeView = function(employee) {
 							quality: 50,
 							destinationType: Camera.DestinationType.DATA_URL,
 							sourceType: 1,		// 0: Photo library, 1: Camera, 2: Saved Photo Album
-							encodingType: 0		// 0: jpg, 1: png
 						};
 		navigator.camera.getPicture(
 			function(imageData) {
+				app.showAlert('f(imageData)', 'WHERE AM I');
 				$('.employee-image', this.el).attr('src', "data:image/jpeg;base64," + imageData);
 			},
 			function() {
