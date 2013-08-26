@@ -65,14 +65,14 @@ var app = {
 
         // If there isn't a current page (fresh start) -> No transition
         if (!this.currentPage) {
-            $(page.el).attr('class', 'page stage-center');
+            $(page.el).attr('class', 'page stage-center').attr('id','homePage');
             $('body').append(page.el);
             this.currentPage = page;
             return;
         }
 
         // Cleaning up: remove old pages moved out of viewport
-        $('.stage-right, .stage-left').not('.homePage').remove();
+        $('.stage-right, .stage-left').not('#homePage').remove();
 
         if (page === app.homePage) {
             // Always apply a Back transition when we go to search page
