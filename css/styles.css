@@ -1,3 +1,30 @@
+@font-face {
+    font-family: 'helvetica_neue-Regular';
+    src: url('fonts/helveticaneue-ultralight-webfont.eot');
+    src: url('fonts/helveticaneue-ultralight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticaneue-ultralight-webfont.woff') format('woff'),
+         url('fonts/helveticaneue-ultralight-webfont.ttf') format('truetype'),
+         url('fonts/helveticaneue-ultralight-webfont.svg#helvetica_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'helvetica_neue-Italic';
+    src: url('fonts/helveticaneue-ultralightital-webfont.eot');
+    src: url('fonts/helveticaneue-ultralightital-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/helveticaneue-ultralightital-webfont.woff') format('woff'),
+         url('fonts/helveticaneue-ultralightital-webfont.ttf') format('truetype'),
+         url('fonts/helveticaneue-ultralightital-webfont.svg#helvetica_neueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html {
     height: 100%;
 }
@@ -14,7 +41,7 @@ body {
 }
 
 .header {
-    background: #666;
+    background: #f6f6f8;
     -webkit-background-size: 1px 44px;
     -moz-background-size: 1px 44px;
     -ms-background-size: 1px 44px;
@@ -26,13 +53,15 @@ body {
     color: #fff;
     -webkit-user-select: none;
     -webkit-touch-callout: none;
-    border-bottom: solid 1px #eee;
 }
 
 .header h1 {
+    color: #000;
+    font-family: 'helvetica_neue-Regular', Arial, Helvetica, sans-serif;
+    font-weight: normal;
     padding: 0;
     text-align: center;
-    font-size: 20px;
+    font-size: 32px;
     margin: 0;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -45,9 +74,7 @@ body {
 .header-button {
     position: absolute;
     top: 6;
-    padding: 7px 5px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    line-height: 1em;
 }
 
 .header-button-left {
@@ -55,13 +82,13 @@ body {
 }
 
 .search-bar {
-    background: #ccc;
-    height: 32px;
+    background: #f6f6f8;
+    height: 40px;
     padding-left:6px;
     padding-right: 6px;
     padding-top: 6px;
     margin-bottom: 6px;
-    border-bottom: solid 1px #666;
+    border-bottom: solid 1px #e4e4e4;
 }
 
 input[type="search"] {
@@ -69,16 +96,15 @@ input[type="search"] {
 	border: none;
 	border-radius: 4px;
 	padding: 4px 0px 2px 2px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	margin-top: 0px;
-	font-size: 16px;
-	box-shadow: inset 0 2px 2px rgba(0,0,0,.5), 0 1px #fff;
-	background: #eee;
+	font-size: 24px;
+	background: #fff;
     -webkit-appearance:none;
 }
 
 input[type="search"]:focus {
 	outline: none;
-	box-shadow: inset 0 4px 8px rgba(0,0,0,.5), 0 1px #fff;
 }
 
 ul {
@@ -143,29 +169,22 @@ li>a * {
 }
 
 .button {
-	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
-	box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ededed), color-stop(1, #dfdfdf) );
-	background:-moz-linear-gradient( center top, #ededed 5%, #dfdfdf 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#dfdfdf');
-	background-color:#ededed;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
-	border-radius:2px;
-	border:1px solid #dcdcdc;
+    font-family: Helvetica, sans-serif;
 	display:inline-block;
-	color:#666666;
-	font-size:14px;
+	color:#007aff;
+	font-size:24px;
 	text-decoration:none;
-	text-shadow:1px 1px 0px #ffffff;
+    padding-bottom: 6px;
+    vertical-align: top;
+    line-height: 36px;
+}
+
+.button:before {
+    content: url(img/back-arrow.png);
+    padding-right: 8px;
 }
 
 .button:hover {
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #dfdfdf), color-stop(1, #ededed) );
-	background:-moz-linear-gradient( center top, #dfdfdf 5%, #ededed 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#dfdfdf', endColorstr='#ededed');
-	background-color:#dfdfdf;
 
 }
 
